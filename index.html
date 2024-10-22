@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lover's Space</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Parallax Background -->
+    <div class="parallax-bg"></div>
+
+    <!-- Typewriter Effect -->
+    <div class="typewriter">
+        <h1>Chào mừng đến với không gian của chúng ta!</h1>
+    </div>
+
+    <!-- Sticky Music Player -->
+    <div class="sticky-music-player">
+        <audio id="audio-player" controls>
+            <source src="your-song.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <!-- Gallery with Lightbox -->
+    <div class="gallery">
+        <img src="crush1.jpg" alt="Crush" class="gallery-img">
+        <img src="crush2.jpg" alt="Crush" class="gallery-img">
+        <img src="crush3.jpg" alt="Crush" class="gallery-img">
+    </div>
+
+    <div id="lightbox" class="lightbox">
+        <img id="lightbox-img" src="">
+    </div>
+
+    <!-- Audio Visualizer -->
+    <div class="audio-player">
+        <canvas id="visualizer"></canvas>
+    </div>
+
+    <!-- Floating Hearts -->
+    <div id="heart-container"></div>
+    <button id="heart-button">Send Love</button>
+
+    <!-- Personalized Greeting -->
+    <h2 id="greeting"></h2>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
