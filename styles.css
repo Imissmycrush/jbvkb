@@ -14,8 +14,8 @@
     font-size: 48px;
     white-space: nowrap;
     border-right: 4px solid;
-    width: 24ch;
-    animation: typing 3s steps(24) 1s infinite normal both, blink .75s step-end infinite;
+    width: 36ch;
+    animation: typing 4s steps() 1s infinite normal both, blink .75s step-end infinite;
     overflow: hidden;
 }
 
