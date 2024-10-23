@@ -14,7 +14,6 @@ lightbox.addEventListener('click', () => {
     lightbox.style.display = 'none';
 });
 
-// Audio Visualizer với gradient và hiệu ứng fade
 const audio = document.getElementById('audio-player');
 const canvas = document.getElementById('visualizer');
 const ctx = canvas.getContext('2d');
@@ -35,7 +34,7 @@ audio.addEventListener('play', function () {
         analyser.getByteFrequencyData(dataArray);
 
         // Clear canvas with a semi-transparent background for fading effect
-        ctx.fillStyle = 'rgba(241, 241, 241, 0.5)'; // semi-transparent fill
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.1)'; // Thay đổi màu nền để làm nổi bật gradient
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         const barWidth = (canvas.width / bufferLength) * 2.5;
@@ -46,19 +45,19 @@ audio.addEventListener('play', function () {
             barHeight = dataArray[i];
 
             // Create a gradient for each bar
-            const gradient = ctx.createLinearGradient(0, canvas.height - barHeight / 2, 0, canvas.height);
-            gradient.addColorStop(0, `rgb(${barHeight + 150}, 50, 150)`);
-            gradient.addColorStop(1, `rgb(${barHeight + 50}, 100, 255)`);
+            const gradient = ctx.createLinearGradient(0, canvas.height - barHeight, 0, canvas.height);
+            gradient.addColorStop(0, `rgb(${barHeight + 100}, 50, 150)`); // Tạo gradient cho phần trên
+            gradient.addColorStop(1, `rgb(${barHeight + 50}, 100, 255)`); // Tạo gradient cho phần dưới
 
             ctx.fillStyle = gradient;
-            ctx.fillRect(x, canvas.height - barHeight / 2, barWidth, barHeight / 2);
-
-            x += barWidth + 1;
+            ctx.fillRect(x, canvas.height - barHeight, barWidth, barHeight); // Thay đổi chiều cao hình chữ nhật để tạo hiệu ứng âm thanh
+            x += barWidth + 1; // Tăng vị trí x để vẽ các thanh
         }
     }
 
     draw();
 });
+
 
 const fileInput = document.getElementById('file-input');
 const audioPlayer = document.getElementById('audio-player');
