@@ -20,7 +20,7 @@ lightbox.addEventListener('click', () => {
 
         // Tải hình ảnh nền anime
         const backgroundImage = new Image();
-        backgroundImage.src = 'crush4.jpg'; // Thay bằng đường dẫn đến hình ảnh anime của bạn
+        backgroundImage.src = ''; // Thay bằng đường dẫn đến hình ảnh anime của bạn
 
         audio.addEventListener('play', function () {
             const audioCtx = new AudioContext();
