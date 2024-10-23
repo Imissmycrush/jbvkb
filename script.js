@@ -60,6 +60,19 @@ audio.addEventListener('play', function () {
     draw();
 });
 
+const fileInput = document.getElementById('file-input');
+const audioPlayer = document.getElementById('audio-player');
+
+fileInput.addEventListener('change', function () {
+    const file = this.files[0];
+    
+    if (file) {
+        const audioURL = URL.createObjectURL(file);
+        audioPlayer.src = audioURL;
+        audioPlayer.play(); // Tự động phát file khi người dùng chọn
+    }
+});
+
 // Floating Hearts
 const heartContainer = document.getElementById('heart-container');
 const heartButton = document.getElementById('heart-button');
