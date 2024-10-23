@@ -14,7 +14,7 @@ lightbox.addEventListener('click', () => {
     lightbox.style.display = 'none';
 });
 
-// Audio Visualizer
+// Audio Visualizer với gradient và hiệu ứng fade
 const audio = document.getElementById('audio-player');
 const canvas = document.getElementById('visualizer');
 const ctx = canvas.getContext('2d');
@@ -34,7 +34,8 @@ audio.addEventListener('play', function () {
         requestAnimationFrame(draw);
         analyser.getByteFrequencyData(dataArray);
 
-        ctx.fillStyle = '#f1f1f1';
+        // Clear canvas with a semi-transparent background for fading effect
+        ctx.fillStyle = 'rgba(241, 241, 241, 0.5)'; // semi-transparent fill
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
         const barWidth = (canvas.width / bufferLength) * 2.5;
@@ -43,8 +44,15 @@ audio.addEventListener('play', function () {
 
         for (let i = 0; i < bufferLength; i++) {
             barHeight = dataArray[i];
-            ctx.fillStyle = `rgb(${barHeight + 100}, 50, 50)`;
+
+            // Create a gradient for each bar
+            const gradient = ctx.createLinearGradient(0, canvas.height - barHeight / 2, 0, canvas.height);
+            gradient.addColorStop(0, `rgb(${barHeight + 150}, 50, 150)`);
+            gradient.addColorStop(1, `rgb(${barHeight + 50}, 100, 255)`);
+
+            ctx.fillStyle = gradient;
             ctx.fillRect(x, canvas.height - barHeight / 2, barWidth, barHeight / 2);
+
             x += barWidth + 1;
         }
     }
