@@ -34,26 +34,6 @@
     text-align: center;
 }
 
-/* Gallery Images */
-.gallery {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-}
-
-.gallery-img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.gallery-img:hover {
-    transform: scale(1.1);
-}
-
-
 
 /* Audio Player */
 .audio-player {
